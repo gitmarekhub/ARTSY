@@ -1,0 +1,91 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+body {
+  margin: 0;
+  padding: 50px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.serialy th {
+  background-color: aqua;
+}
+
+th {
+  background-color: aqua;
+  padding: 10px;
+  text-align: left;
+}
+td {
+  padding: 20px;
+}
+.cervena {
+  background-color: #d32f2f;
+  color: white;
+  padding-left: 10px;
+}
+.fialova {
+  background-color: #c2185b;
+  color: white;
+  padding-left: 10px;
+}
+.modra {
+  background-color: #1976d2;
+  color: white;
+  padding-left: 10px;
+}
+#specialka {
+  color: yellow;
+  font-style: italic;
+  font-weight: 900;
+}
+.filmy {
+  max-width: 900px;
+  border-collapse: collapse;
+  text-align: left;
+  margin: 50px auto;
+}
+
+.filmy th {
+  background-color: white;
+  color: black;
+  text-align: left;
+  padding: 12px 5px;
+  border-bottom: 1px solid rgb(184, 183, 183);
+}
+
+.extrasolid {
+  border-bottom: 2px solid rgb(184, 183, 183);
+}
+
+.filmy td {
+  padding: 12px 5px;
+  border-bottom: 1px solid rgb(184, 183, 183);
+}
+
+.grey {
+  background-color: #ececec;
+}
+.white {
+  background-color: white;
+}
+
+#virtual-tour {
+  width: 100%;
+  max-width: 80vw;
+  aspect-ratio: 2350 / 1200;
+  margin: 50px auto;
+  border-radius: 12px;
+  display: block;
+}
