@@ -1,0 +1,46 @@
+/* playground.css */
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.playground-grid__item {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.playground-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+
+@media (max-width: 768px) {
+  .playground-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .playground-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PhotoSwipe mobile */
+@media (max-width: 768px) {
+  .pswp__button--arrow--left,
+  .pswp__button--arrow--right {
+    display: none !important;
+  }
+}
+
+.pswp__caption {
+  display: none !important;
+}

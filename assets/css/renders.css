@@ -1,0 +1,126 @@
+/* renders.css */
+
+.project-intro {
+  margin-bottom: 2rem;
+}
+
+/* ---- Selected projects ---- */
+.project {
+  margin-bottom: calc(var(--section-space) * 1.2);
+}
+
+.project__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.project__gif {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  order: 1;
+  display: flex;
+}
+.project__image {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  order: 2;
+  display: flex;
+}
+
+/* Render image – zoom kurzor, hover scale */
+.project__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.5s var(--ease);
+  flex: 1;
+}
+
+.project__image:hover img {
+  transform: scale(1.03);
+}
+
+/* GIF/video – žádná interakce, žádný efekt */
+.project__gif video,
+.project__gif img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  cursor: default;
+  pointer-events: none;
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .project__media {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- All projects grid ---- */
+
+.all-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: var(--section-space);
+}
+
+.all-grid__item {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.all-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.5s var(--ease);
+}
+
+.all-grid__item:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .all-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .all-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- PhotoSwipe – schovat caption ---- */
+.pswp__caption {
+  display: none !important;
+}
+
+/* ---- PhotoSwipe mobile override ---- */
+@media (max-width: 768px) {
+  .pswp__button--arrow--left,
+  .pswp__button--arrow--right {
+    display: none !important;
+  }
+}
+
+/* Reduce gap between selected projects and all projects */
+section[aria-labelledby="all-heading"] {
+  padding-top: calc(var(--section-space) * 0.5);
+}

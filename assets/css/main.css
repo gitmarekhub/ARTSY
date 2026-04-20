@@ -1,0 +1,385 @@
+/* ================================================
+   KUBAZMEDLOVA.COM – Personal Portfolio
+   main.css – Global styles
+   ================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap");
+
+:root {
+  --bg: #0f0e0e;
+  --surface: #0f0e0e;
+  --border: #282828;
+  --text: #fffffa;
+  --text-dim: #999999;
+  --accent-red: #fd1b4c;
+
+  --font: "Work Sans", sans-serif;
+
+  --container-w: 80vw;
+
+  --nav-h: 74px;
+  --section-space: 9rem;
+
+  --ease: cubic-bezier(0.25, 0, 0.1, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+main {
+  flex: 1;
+}
+
+/* Fluid typography – 1.2 scale, base 16px, 390px → 2560px */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+}
+h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.488rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.074rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+h3 {
+  font-size: clamp(1.3rem, 2.2vw, 1.728rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+}
+h4 {
+  font-size: clamp(1.1rem, 1.8vw, 1.44rem);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+h5 {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+h6 {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+p {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  color: var(--text-dim);
+}
+
+.container {
+  width: var(--container-w);
+  margin-inline: auto;
+}
+
+section {
+  padding-block: var(--section-space);
+}
+.section--top {
+  padding-top: calc(var(--nav-h) + var(--section-space));
+}
+
+.intro {
+  margin-bottom: var(--section-space);
+}
+.project-intro {
+  margin-bottom: 2rem;
+}
+
+/* ---- HEADER ---- */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition:
+    opacity 0.3s ease,
+    border-color 0.3s ease;
+}
+
+header.scrolled {
+  border-bottom-color: var(--border);
+}
+header.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--container-w);
+  margin-inline: auto;
+}
+
+.header-inner .nav-desktop {
+  order: 1;
+}
+.header-inner .nav__logo {
+  order: 2;
+}
+.header-inner .hamburger {
+  order: 2;
+}
+
+.page-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-desktop a {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+
+.nav-desktop a:hover {
+  color: var(--text);
+}
+
+.nav-desktop a.active,
+.nav-desktop a[aria-current="page"] {
+  color: #fd1b4c;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text);
+  z-index: 200;
+}
+
+.hamburger svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  z-index: 150;
+}
+
+.nav-mobile.active {
+  display: flex;
+}
+
+.nav-mobile__close {
+  position: absolute;
+  top: calc((var(--nav-h) - 36px) / 2);
+  right: calc((100vw - var(--container-w)) / 2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-mobile__close:hover {
+  opacity: 0.7;
+}
+
+.nav-mobile a {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--text);
+}
+.nav-mobile a[aria-current="page"] {
+  color: #fd1b4c;
+}
+
+/* ---- FOOTER ---- */
+
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+footer .container {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer small {
+  font-size: clamp(0.75rem, 0.9vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+}
+
+/* ---- FOCUS / SELECTION ---- */
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.link--white        { color: #fffffa; transition: color 0.2s; }
+.link--white:hover  { color: #999999; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 990px) {
+  :root {
+    --section-space: 5rem;
+  }
+  .nav-desktop {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --section-space: 4rem;
+  }
+}
+
+.nav__logo {
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav__logo:hover {
+  color: var(--text);
+}

@@ -1,0 +1,83 @@
+/* about.css */
+
+/* Layout – stejný přístup jako kubazmedlova.cz */
+.about__layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-top: var(--section-space);
+}
+
+/* Foto – fixní šířka, při nedostatku místa padne pod text */
+.about__left {
+  flex: 2 1 340px;
+  max-width: 600px;
+}
+
+@media (max-width: 1100px) {
+  .about__left {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .about__text {
+    flex: 1 1 100%;
+  }
+}
+
+.about__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center 15%;
+  aspect-ratio: 3 / 4;
+}
+
+/* Text – roztáhne se na zbytek */
+.about__text {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 0.25rem;
+}
+
+.about__text a,
+.about__text p a {
+  color: #fffffa;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.about__text a:hover,
+.about__text p a:hover { color: #999999; }
+
+/* Socials – pod layoutem, na střed */
+.about__socials {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: var(--section-space);
+  justify-content: center;
+}
+
+.about__socials a {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.about__socials a:hover {
+  opacity: 0.6;
+}
+
+/* Mobil – foto na plnou šířku */
+@media (max-width: 600px) {
+  .about__left {
+    max-width: 100%;
+  }
+}
