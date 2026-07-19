@@ -4,6 +4,48 @@
   margin-bottom: 2rem;
 }
 
+/* ---- Rozbalovací popis projektu ---- */
+.project-desc summary {
+  list-style: none;
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+  color: #fd1b4c;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  user-select: none;
+}
+
+.project-desc summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-desc summary::after {
+  content: "[Show project description]";
+}
+
+.project-desc[open] summary::after {
+  content: "[Hide project description]";
+}
+
+.project-desc[open] summary {
+  margin-bottom: 1rem;
+}
+
+.project-desc[open] > *:not(summary) {
+  animation: project-desc-in 0.35s var(--ease) both;
+}
+
+@keyframes project-desc-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---- Selected projects ---- */
 .project {
   margin-bottom: calc(var(--section-space) * 1.2);
